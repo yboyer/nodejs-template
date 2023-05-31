@@ -1,0 +1,31 @@
+FROM endeveit/docker-jq AS packages
+WORKDIR /app
+COPY package.json package-lock.json /tmp/
+RUN jq 'del(.version)' < /tmp/package.json > /app/package.json
+RUN jq 'del(.packages."".version) | del(.version)' < /tmp/package-lock.json > /app/package-lock.json
+
+FROM node:18-alpine AS build
+EXPOSE 3000
+WORKDIR /app
+RUN apk --no-cache add make build-base
+COPY --from=packages /app/package.json /app/package-lock.json /app/
+COPY api/package.json /app/api/
+RUN npm ci --workspaces
+COPY tsconfig.json /app
+COPY api /app/api/
+RUN cd api \
+  && npm run prisma:generate \
+  && npm run build \
+  && cp package.json dist/ \
+  && touch dist/.env
+RUN npm prune --workspaces --omit=dev
+
+FROM node:18-alpine
+EXPOSE 3000
+ENV NODE_ENV production
+WORKDIR /app/api
+RUN apk --no-cache add curl
+COPY --from=build /app/node_modules /app/node_modules
+COPY --from=build /app/api/dist /app/api
+COPY --from=build /app/api/node_modules /app/api/node_modules
+CMD node src/index.js

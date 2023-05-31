@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "parserOptions": { "project": "./tsconfig.json" },
+  "extends": ["@keplr/eslint-config-backend-node"],
+  "rules": {
+    "no-console": "off",
+    "no-process-env": "off",
+    "no-sync": "off",
+    "@typescript-eslint/no-unsafe-member-access": ["off"],
+    "@typescript-eslint/no-unsafe-return": ["warn"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-unsafe-call": ["warn"],
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/semi": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-type-alias": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+(cd api && npx lint-staged)
+(cd front && npx lint-staged)

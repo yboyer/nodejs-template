@@ -1,0 +1,20 @@
+{
+  "name": "template",
+  "version": "0.0.0",
+  "engines": {
+    "node": "18"
+  },
+  "private": true,
+  "workspaces": [
+    "api",
+    "front"
+  ],
+  "devDependencies": {
+    "@keplr/eslint-config-backend-node": "^3.6.0",
+    "eslint": "^8.41.0",
+    "husky": "^8.0.3"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}

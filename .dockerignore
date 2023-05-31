@@ -1,0 +1,15 @@
+.git/
+.github/
+.digitalocean/
+**/node_modules/
+**/dist/
+**/.env*
+**/.husky
+**/.gitignore
+Dockerfile*
+postgres_ctx/
+postgres_data/
+.npmrc
+docker-compose.yml
+README.md
+renovate.json
