@@ -1,19 +1,31 @@
-import ky from 'ky'
+import { AxiosError } from 'axios'
 
-import config from '../config'
+//
 
-const api = ky.extend({
-  prefixUrl: config.API_URL,
-})
+export class APIError extends Error {
+  /** body */
+  data: Record<string, any>
 
-export const Client = {
-  async query(query: string) {
-    return await api
-      .get('query', {
-        searchParams: {
-          text: query,
-        },
-      })
-      .json()
-  },
+  /** HTTP code */
+  code: number
+
+  constructor(error: unknown) {
+    super()
+    this.code = 0
+    this.data = {}
+
+    if (error instanceof AxiosError) {
+      if (error.response?.data) {
+        this.message = error.response.data.message
+        this.code = error.response.data.statusCode
+        this.data = error.response.data.data
+      } else {
+        this.message = error.message
+      }
+    } else if (error instanceof Error) {
+      this.message = error.message
+    } else {
+      this.message = 'Erreur inconnue'
+    }
+  }
 }

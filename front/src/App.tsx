@@ -1,23 +1,25 @@
-import { useState } from 'react'
+import { observer } from 'mobx-react-lite'
+import { Routes, Route } from 'react-router-dom'
 
-import './App.css'
+import { useStore } from './helpers/Store'
+import useRoutes from './helpers/useRoutes'
+import { NotFound } from './routes/NotFound'
 
-function App() {
-  const [count, setCount] = useState(0)
+//
+
+export const App = observer(() => {
+  const store = useStore()
+  const routes = useRoutes(store)
 
   return (
     <>
-      <div className="card">
-        <button
-          onClick={() => {
-            setCount(c => c + 1)
-          }}
-        >
-          count is {count}
-        </button>
-      </div>
+      <Routes>
+        {routes.map(r => (
+          <Route key={r.path} path={r.path} element={r.element} />
+        ))}
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
-}
-
-export default App
+})
