@@ -1,5 +1,3 @@
-// import path from 'path'
-
 import fastifyCors from '@fastify/cors'
 import boom from '@hapi/boom'
 import fastify, { FastifyInstance } from 'fastify'
@@ -28,6 +26,24 @@ export default function createServer() {
       },
     },
   })
+
+  if (envConfig.dev) {
+    void server.register(import('@fastify/swagger'), {
+      swagger: {
+        info: {
+          title: 'API',
+          version: '',
+        },
+      },
+    })
+
+    void server.register(import('@fastify/swagger-ui'), {
+      routePrefix: '/docs',
+      uiConfig: {
+        docExpansion: 'list',
+      },
+    })
+  }
 
   const mode = envConfig.production ? 'prod' : 'dev'
   console.log(`App is running in ${mode} mode`)

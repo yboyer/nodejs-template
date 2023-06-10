@@ -7,6 +7,8 @@ import { Handler, RouteDoc } from '@/types/fastify'
 
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 const ReplySchema = CS.Object(
   {
     accessToken: CS.String(true),
@@ -22,7 +24,7 @@ const BodySchema = CS.Object(
 )
 export type Body = typeof BodySchema.type
 
-export const signinSchema: RouteDoc = {
+export const schema: RouteDoc = {
   body: BodySchema.getJsonSchema(),
   response: {
     200: ReplySchema.getJsonSchema(),
@@ -31,11 +33,11 @@ export const signinSchema: RouteDoc = {
   },
 }
 
-// Options
-
 export const signinOpts = {
-  schema: signinSchema,
+  schema,
 }
+
+//
 
 export const signinHandler: Handler<Reply, Body> = async ({ body }) => {
   const user = await User.findFirst({

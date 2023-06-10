@@ -6,6 +6,8 @@ import { customAlphabet } from 'nanoid'
 import Mailer from '@/helpers/Mailer'
 import { db } from '@/utils'
 
+//
+
 const nanoid = customAlphabet('0123456789', 5)
 
 export function checkPassword(str: string) {

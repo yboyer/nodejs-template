@@ -8,6 +8,8 @@ import { Handler, RouteDoc } from '@/types/fastify'
 
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 const ReplySchema = CS.Object(
   {
     accessToken: CS.String(true),
@@ -17,7 +19,7 @@ const ReplySchema = CS.Object(
 )
 export type Reply = typeof ReplySchema.type
 
-export const refreshTokenSchema: RouteDoc = {
+export const schema: RouteDoc = {
   response: {
     200: ReplySchema.getJsonSchema(),
     400: HttpErrorSchema,
@@ -26,8 +28,10 @@ export const refreshTokenSchema: RouteDoc = {
 }
 
 export const refreshTokenOpts = {
-  schema: refreshTokenSchema,
+  schema,
 }
+
+//
 
 export const refreshTokenHandler: Handler<Reply> = async ({ headers }) => {
   if (!headers.authorization) {

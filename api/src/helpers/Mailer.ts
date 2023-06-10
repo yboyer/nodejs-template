@@ -3,6 +3,8 @@ import Mailgun from 'mailgun.js'
 
 import envConfig from '@/../config'
 
+//
+
 const mailgun = new Mailgun(formData)
 const mg = mailgun.client({
   username: 'api',

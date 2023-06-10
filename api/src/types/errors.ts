@@ -1,5 +1,7 @@
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 export const errorTypes = {}
 
 export const HttpError = CS.Object(

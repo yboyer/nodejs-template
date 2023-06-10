@@ -4,10 +4,12 @@ import { Handler, RouteDoc } from '@/types/fastify'
 
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 const ReplySchema = CS.Object({ wait: CS.Number(true) }, true)
 export type Reply = typeof ReplySchema.type
 
-export const resendCodeSchema: RouteDoc = {
+export const schema: RouteDoc = {
   response: {
     200: ReplySchema.getJsonSchema(),
     404: HttpErrorSchema,
@@ -15,11 +17,11 @@ export const resendCodeSchema: RouteDoc = {
   },
 }
 
-// Options
-
 export const resendCodeOpts = {
-  schema: resendCodeSchema,
+  schema,
 }
+
+//
 
 export const resendCodeHandler: Handler<Reply> = async ({ user }) => {
   await User.sendConfirmationCode(user)

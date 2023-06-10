@@ -3,10 +3,8 @@ import { FastifyReply } from 'fastify'
 
 import { HttpError as HttpErrorResponse } from '@/types/errors'
 
-/*
- * Serialize function
- * Allow to serialize a error and send it back to the client
- */
+//
+
 export function serializeError(err: Boom, res: FastifyReply): void {
   const message: HttpErrorResponse = {
     ...err.output.payload,

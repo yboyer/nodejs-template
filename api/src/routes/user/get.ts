@@ -3,6 +3,8 @@ import { Handler, RouteDoc } from '@/types/fastify'
 
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 const ReplySchema = CS.Object(
   {
     user: CS.Object(
@@ -18,7 +20,7 @@ const ReplySchema = CS.Object(
 )
 export type Reply = typeof ReplySchema.type
 
-export const getSchema: RouteDoc = {
+export const schema: RouteDoc = {
   response: {
     200: ReplySchema.getJsonSchema(),
     400: HttpErrorSchema,
@@ -27,8 +29,10 @@ export const getSchema: RouteDoc = {
 }
 
 export const getOpts = {
-  schema: getSchema,
+  schema,
 }
+
+//
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export const getHandler: Handler<Reply> = async ({ user }) => ({

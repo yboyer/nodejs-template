@@ -4,6 +4,8 @@ import { FastifyRequest } from 'fastify/types/request'
 import { decodeJWT } from '@/helpers/JWT'
 import { User } from '@/models'
 
+//
+
 declare module 'fastify' {
   interface FastifyRequest {
     user: User

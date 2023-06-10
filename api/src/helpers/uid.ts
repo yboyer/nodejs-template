@@ -1,5 +1,7 @@
 import crypto from 'crypto'
 
+//
+
 export function getId(size = 6) {
   if (!size) {
     throw new Error('size greater than 0')

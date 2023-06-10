@@ -7,6 +7,8 @@ import { Handler, RouteDoc } from '@/types/fastify'
 
 import { CS } from '@keplr/typed-ajv'
 
+//
+
 const ReplySchema = CS.Object(
   {
     accessToken: CS.String(true),
@@ -31,7 +33,7 @@ const BodySchema = CS.Object(
 )
 export type Body = typeof BodySchema.type
 
-export const signupSchema: RouteDoc = {
+export const schema: RouteDoc = {
   body: BodySchema.getJsonSchema(),
   response: {
     200: ReplySchema.getJsonSchema(),
@@ -40,11 +42,11 @@ export const signupSchema: RouteDoc = {
   },
 }
 
-// Options
-
 export const signupOpts = {
-  schema: signupSchema,
+  schema,
 }
+
+//
 
 export const signupHandler: Handler<Reply, Body> = async ({ body }) => {
   if (!checkPassword(body.password)) {

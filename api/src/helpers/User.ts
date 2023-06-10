@@ -1,5 +1,7 @@
 import { signJWT } from './JWT'
 
+//
+
 export async function tokens(id: string) {
   const [accessToken, refreshToken] = await Promise.all([
     signJWT({ id, type: 'auth' }),
