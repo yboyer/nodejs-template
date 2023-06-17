@@ -53,7 +53,7 @@
         "@keplr/typed-ajv": "^3.0.5",
         "@prisma/client": "^4.15.0",
         "bcrypt": "^5.1.0",
-        "dotenv": "^16.3.0",
+        "dotenv": "^16.3.1",
         "fastify": "^4.18.0",
         "fastify-file-upload": "^4.0.0",
         "form-data": "^4.0.0",
