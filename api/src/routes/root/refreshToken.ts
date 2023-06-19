@@ -39,12 +39,12 @@ export const refreshTokenHandler: Handler<Reply> = async ({ headers }) => {
   }
 
   const decoded = await decodeJWT(headers.authorization.split(' ')[1])
-  if (!decoded || decoded.sub !== 'refresh') {
+  if (!decoded || decoded.type !== 'refresh') {
     throw boom.unauthorized()
   }
 
   const user = await User.findFirst({
-    where: { id: decoded.iss },
+    where: { id: decoded.sub },
   })
 
   if (!user) {

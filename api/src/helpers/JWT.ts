@@ -5,24 +5,23 @@ import envConfig from '@/../config'
 //
 
 interface Payload extends JWTPayload {
-  sub: 'auth' | 'refresh'
+  type: 'auth' | 'refresh'
 }
 
 export async function signJWT<Extra extends Record<string, any>>({
-  id,
+  sub,
   expiration = '1h',
-  type = 'auth',
+  type,
   extra,
 }: {
-  id: string
+  sub: string
   expiration?: string
-  type?: Payload['sub']
+  type?: Payload['type']
   extra?: Extra
 }): Promise<string> {
-  const jwt = await new SignJWT(extra ?? {})
+  const jwt = await new SignJWT({ ...extra, type })
     .setProtectedHeader({ alg: 'HS256' })
-    .setIssuer(id)
-    .setSubject(type)
+    .setSubject(sub)
     .setExpirationTime(expiration)
     .sign(new TextEncoder().encode(envConfig.secretKey))
 

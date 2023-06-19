@@ -23,13 +23,13 @@ export async function checkJWT(req: FastifyRequest) {
     throw boom.unauthorized()
   }
 
-  if (res.sub !== 'auth' || !res.iss) {
+  if (res.type !== 'auth' || !res.sub) {
     throw boom.unauthorized()
   }
 
   const user = await User.findFirst({
     where: {
-      id: res.iss,
+      id: res.sub,
     },
   })
 
