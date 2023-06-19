@@ -1,20 +1,19 @@
 {
 	"folders": [
 		{
-			"name": ".github",
 			"path": "../.github"
 		},
 		{
-			"name": ".docker",
 			"path": "../.docker"
 		},
 		{
-			"name": "api",
 			"path": "../api"
 		},
 		{
-			"name": "front",
 			"path": "../front"
+		},
+		{
+			"path": "../services"
 		}
 	],
 	"settings": {},
