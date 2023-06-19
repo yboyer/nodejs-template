@@ -1,7 +1,5 @@
-import fastifyCors from '@fastify/cors'
 import boom from '@hapi/boom'
 import fastify, { FastifyInstance } from 'fastify'
-import fileUpload from 'fastify-file-upload'
 
 import { serializeError } from '@/plugins/error'
 
@@ -49,12 +47,12 @@ export default function createServer() {
   console.log(`App is running in ${mode} mode`)
 
   // void server.register(fastifyHelmet)
-  void server.register(fileUpload, {
+  void server.register(import('fastify-file-upload'), {
     tempFileDir: '/tmp/',
     useTempFiles: true,
     preserveExtension: true,
   })
-  void server.register(fastifyCors, {
+  void server.register(import('@fastify/cors'), {
     origin: '*',
   })
 
