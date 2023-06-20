@@ -5,6 +5,16 @@ import { Routing } from './routing'
 
 //
 
+export function updateRouting(
+  route: Routing,
+  params: { [param: string]: string },
+) {
+  return Object.keys(params).reduce(
+    (v, k) => v.replace(`:${k}`, params[k]),
+    route,
+  ) as Routing
+}
+
 export function useRedirect() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -12,7 +22,7 @@ export function useRedirect() {
   return useCallback(
     (
       route: Routing,
-      opts?: NavigateOptions & { params: { [params: string]: string } },
+      opts?: NavigateOptions & { params: { [param: string]: string } },
     ) => {
       if (location.pathname === route) {
         window.location.reload()
@@ -20,10 +30,7 @@ export function useRedirect() {
       }
 
       const updatedRoute = opts?.params
-        ? Object.keys(opts.params).reduce(
-            (v, k) => v.replace(`:${k}`, opts.params[k]),
-            route,
-          )
+        ? updateRouting(route, opts.params)
         : route
 
       navigate(updatedRoute, opts)
