@@ -47,7 +47,7 @@
     "dependencies": {
         "@fastify/cors": "^8.3.0",
         "@fastify/helmet": "^10.1.1",
-        "@fastify/swagger": "^8.6.0",
+        "@fastify/swagger": "^8.7.0",
         "@fastify/swagger-ui": "^1.9.2",
         "@hapi/boom": "^10.0.1",
         "@keplr/typed-ajv": "^3.0.5",
