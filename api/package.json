@@ -57,7 +57,7 @@
         "fastify": "^4.20.0",
         "fastify-file-upload": "^4.0.0",
         "form-data": "^4.0.0",
-        "got": "11",
+        "got": "13",
         "jose": "^4.14.4",
         "lodash": "^4.17.21",
         "luxon": "^3.3.0",
