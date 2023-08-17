@@ -10,7 +10,7 @@
     "front"
   ],
   "devDependencies": {
-    "@keplr/eslint-config-backend-node": "^3.6.0",
+    "@keplr/eslint-config-backend-node": "^3.7.1",
     "eslint": "^8.47.0",
     "husky": "^8.0.3"
   },
