@@ -36,7 +36,7 @@
         "@types/module-alias": "^2.0.2",
         "@types/node": "^18.17.9",
         "husky": "^8.0.3",
-        "jest": "29.6.3",
+        "jest": "29.6.4",
         "lint-staged": "^13.3.0",
         "nodemon": "^3.0.1",
         "prisma": "^4.16.2",
