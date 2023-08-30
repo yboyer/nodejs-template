@@ -32,7 +32,7 @@
     "devDependencies": {
         "@babel/preset-env": "^7.22.14",
         "@types/bcrypt": "^5.0.0",
-        "@types/luxon": "^3.3.1",
+        "@types/luxon": "^3.3.2",
         "@types/module-alias": "^2.0.2",
         "@types/node": "^18.17.12",
         "husky": "^8.0.3",
