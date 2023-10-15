@@ -46,7 +46,7 @@
     },
     "dependencies": {
         "@fastify/cors": "^8.4.0",
-        "@fastify/helmet": "^11.0.0",
+        "@fastify/helmet": "^11.1.1",
         "@fastify/swagger": "^8.10.0",
         "@fastify/swagger-ui": "^1.9.3",
         "@hapi/boom": "^10.0.1",
