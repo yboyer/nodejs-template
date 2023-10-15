@@ -45,7 +45,7 @@
         "typescript": "5.2.2"
     },
     "dependencies": {
-        "@fastify/cors": "^8.3.0",
+        "@fastify/cors": "^8.4.0",
         "@fastify/helmet": "^11.0.0",
         "@fastify/swagger": "^8.10.0",
         "@fastify/swagger-ui": "^1.9.3",
