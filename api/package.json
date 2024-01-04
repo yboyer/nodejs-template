@@ -61,7 +61,7 @@
         "jose": "^4.15.4",
         "lodash": "^4.17.21",
         "luxon": "^3.4.3",
-        "mailgun.js": "^8.2.2",
+        "mailgun.js": "^9.4.1",
         "make-promises-safe": "^5.1.0",
         "module-alias": "^2.2.3",
         "nanoid": "^3.3.6",
