@@ -5,7 +5,7 @@
     "license": "MIT",
     "private": true,
     "engines": {
-        "node": "18"
+        "node": "18.20.3"
     },
     "scripts": {
         "build": "tsc",
@@ -34,7 +34,7 @@
         "@types/bcrypt": "^5.0.2",
         "@types/luxon": "^3.4.2",
         "@types/module-alias": "^2.0.4",
-        "@types/node": "^18.18.5",
+        "@types/node": "^18.19.36",
         "husky": "^8.0.3",
         "jest": "29.7.0",
         "lint-staged": "^13.3.0",
