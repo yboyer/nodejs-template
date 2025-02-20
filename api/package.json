@@ -38,7 +38,7 @@
         "husky": "^8.0.3",
         "jest": "29.7.0",
         "lint-staged": "^13.3.0",
-        "nodemon": "^3.1.7",
+        "nodemon": "^3.1.9",
         "prisma": "^4.16.2",
         "ts-node": "^10.9.2",
         "tsconfig-paths": "^4.2.0",
