@@ -32,7 +32,7 @@
     "devDependencies": {
         "@babel/preset-env": "^7.27.2",
         "@types/bcrypt": "^5.0.2",
-        "@types/luxon": "^3.4.2",
+        "@types/luxon": "^3.6.2",
         "@types/module-alias": "^2.0.4",
         "@types/node": "^22.13.5",
         "husky": "^8.0.3",
@@ -60,7 +60,7 @@
         "got": "11.8.6",
         "jose": "^4.15.9",
         "lodash": "^4.17.21",
-        "luxon": "^3.5.0",
+        "luxon": "^3.6.1",
         "mailgun.js": "^8.2.2",
         "make-promises-safe": "^5.1.0",
         "module-alias": "^2.2.3",
