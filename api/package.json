@@ -30,7 +30,7 @@
         "@": "./src"
     },
     "devDependencies": {
-        "@babel/preset-env": "^7.28.0",
+        "@babel/preset-env": "^7.28.5",
         "@types/bcrypt": "^5.0.2",
         "@types/luxon": "^3.7.1",
         "@types/module-alias": "^2.0.4",
