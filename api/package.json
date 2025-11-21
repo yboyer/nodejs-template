@@ -42,7 +42,7 @@
         "prisma": "^4.16.2",
         "ts-node": "^10.9.2",
         "tsconfig-paths": "^4.2.0",
-        "typescript": "5.9.2"
+        "typescript": "5.9.3"
     },
     "dependencies": {
         "@fastify/cors": "^8.5.0",
